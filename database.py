@@ -1,13 +1,19 @@
+from dotenv import load_dotenv
+from os import getenv
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-SQLITE_DATABASE_URL = "postgresql://fqxatais:BPKWgqgqaRfkqdF3uiEZ7iOfkAB7KLyv@suleiman.db.elephantsql.com/fqxatais"
-engine = create_engine(
-    SQLITE_DATABASE_URL
-)
+if load_dotenv():
+    URL_DATABASE_CREDENTIALS = getenv('URI_DATABASE')
 
-SessionLocal = sessionmaker(autoflush=False, autocommit=False, bind=engine)
+    SQLITE_DATABASE_URL = URL_DATABASE_CREDENTIALS
+    engine = create_engine(
+        SQLITE_DATABASE_URL
+    )
 
-Base = declarative_base()
+    SessionLocal = sessionmaker(autoflush=False, autocommit=False, bind=engine)
+
+    Base = declarative_base()
 

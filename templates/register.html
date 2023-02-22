@@ -1,0 +1,56 @@
+{% include 'layout.html' %}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Registro
+        </div>
+        <div class="card-body">
+            {% if msg %}
+            <div class="alert alert-danger" role="alert">
+                {{msg}}
+            </div>
+            {% endif %}
+            <form method="post" action="/auth/register">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Nombre de Usuario</label>
+                        <input type="username" class="form-control" name="username">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" name="firstname">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Apellido</label>
+                        <input type="text" class="form-control" name="lastname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" class="form-control"
+                           name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Verificar Contraseña</label>
+                    <input type="password" class="form-control"
+                           name="password2" required>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Resgistrarse</button>
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            <a href="/auth"> ¿Ya tienes una cuenta? </a>
+        </div>
+    </div>
+</div>

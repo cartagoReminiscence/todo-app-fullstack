@@ -1,0 +1,49 @@
+{% include 'layout.html' %}
+
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+        Lista de tus Tareas
+    </div>
+    <div class="card-body">
+      <p class="card-text">Información de tareas que registradas</p>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Información</th>
+            <th scope="col">Acciones</th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for todo in todos %}
+          {% if todo.complete != True %}
+          <tr class="pointer" >
+            <td>{{ loop.index }}</td>
+            <td>{{ todo.title }}</td>
+            <td>
+              <button type="button" onclick="window.location.href='/todos/todo/complete/{{todo.id}}'" class="btn btn-success m-1">Completar</button>
+              <button type="button" onclick="window.location.href='edit-todo/{{todo.id}}'" class="btn btn-info">Editar</button>
+            </td>
+          </tr>
+          {% else %}
+          <tr class="pointer alert alert-success" >
+            <td>{{ loop.index }}</td>
+            <td class="strike-through-td">{{ todo.title }}</td>
+            <td>
+              <button type="button" onclick="window.location.href='/todos/todo/complete/{{todo.id}}'" class="btn btn-success m-1">Restaurar</button>
+              <button type="button" onclick="window.location.href='edit-todo/{{todo.id}}'" class="btn btn-info">Editar</button>
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+
+        </tbody>
+      </table>
+      <a href="add-todo" class="btn btn-primary">¡Agregar nueva tarea!</a>
+    </div>
+  </div>
+</div>

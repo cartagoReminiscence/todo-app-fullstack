@@ -2,8 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-SQLITE_DATABASE_URL = "postgresql://postgres:name123@localhost:5432/TodoApplicationDatabasev2"
-
+SQLITE_DATABASE_URL = "postgresql://fqxatais:BPKWgqgqaRfkqdF3uiEZ7iOfkAB7KLyv@suleiman.db.elephantsql.com/fqxatais"
 engine = create_engine(
     SQLITE_DATABASE_URL
 )

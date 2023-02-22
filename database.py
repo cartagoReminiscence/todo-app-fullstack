@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 if load_dotenv():
-    URL_DATABASE_CREDENTIALS = getenv('URI_DATABASE')
+    URL_DATABASE_CREDENTIALS = getenv('URL_DATABASE')
 
     SQLITE_DATABASE_URL = URL_DATABASE_CREDENTIALS
     engine = create_engine(
